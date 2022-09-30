@@ -11,6 +11,10 @@ public class Guess {
     public Guess() {
     }
 
+    public String getNumbers() {
+        return this.numbers;
+    }
+
     public void setNumbers(String numbers) {
         if (isValidNumbers(numbers)) {
             this.numbers = numbers;

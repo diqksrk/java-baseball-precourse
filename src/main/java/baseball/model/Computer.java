@@ -17,7 +17,37 @@ public class Computer {
         }
     }
 
-    public void giveHint(Guess guess) {
+    public Hint giveHint(Guess guess) {
+        Hint hint = new Hint();
 
+        countingStrike(guess, hint);
+        countingBall(guess, hint);
+
+        return hint;
+    }
+
+    private void countingStrike(Guess guess, Hint hint) {
+        for (char number : guess.getNumbers().toCharArray()) {
+            addIfStrike(guess, number, hint);
+        }
+    }
+
+    private void addIfStrike(Guess guess, int number, Hint hint) {
+        if (guess.getNumbers().indexOf(number) == answer.getNumbers().indexOf(number)) {
+            hint.addStrike();
+        }
+    }
+
+    private void countingBall(Guess guess, Hint hint) {
+        for (char number : guess.getNumbers().toCharArray()) {
+            addIfBall(guess, number, hint);
+        }
+    }
+
+    private void addIfBall(Guess guess, char number, Hint hint) {
+        if (answer.getNumbers().contains(Character.toString(number)) &&
+            guess.getNumbers().indexOf(number) != answer.getNumbers().indexOf(number)) {
+            hint.addBall();
+        }
     }
 }
