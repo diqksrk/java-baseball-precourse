@@ -21,7 +21,7 @@ class ComputerTest {
         computer.generateAnserNumbers();
 
         // Then
-        assertThat(computer.getAnswer().size()).isEqualTo(3);
+        assertThat(computer.getAnswer().length()).isEqualTo(3);
     }
 
     @Test
@@ -31,8 +31,12 @@ class ComputerTest {
         computer.generateAnserNumbers();
 
         // Then
-        for (int i = 0; i < computer.answer.size(); i++) {
-            assertThat((int) computer.answer.getNumbers().get(i)).isBetween(0, 9);
+        for (int i = 0; i < computer.getAnswer().length(); i++) {
+            assertThat(Character.getNumericValue(
+                                                computer.getAnswer()
+                                                        .getNumbers()
+                                                        .charAt(i))
+                                                ).isBetween(0, 9);
         }
     }
 
@@ -47,9 +51,17 @@ class ComputerTest {
         computer.generateAnserNumbers();
 
         // Then
-        for (int i = 0; i < computer.answer.size() - 1; i++) {
-            standardNumber = (int) computer.answer.getNumbers().get(i);
-            compareNumber = (int) computer.answer.getNumbers().get(i + 1);
+        for (int i = 0; i < computer.getAnswer().length() - 1; i++) {
+            standardNumber = Character.getNumericValue(
+                                                    computer.getAnswer()
+                                                            .getNumbers()
+                                                            .charAt(i)
+                                                        );
+            compareNumber = Character.getNumericValue(
+                                                    computer.getAnswer()
+                                                            .getNumbers()
+                                                            .charAt(i + 1)
+                                                    );
 
             assertThat(standardNumber).isNotEqualTo(compareNumber);
         }

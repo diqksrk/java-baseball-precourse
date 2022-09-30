@@ -3,7 +3,7 @@ package baseball.model;
 import baseball.common.GameRule;
 
 public class Computer {
-    Answer answer = new Answer();
+    private Answer answer = new Answer();
 
     public Answer getAnswer() {
         return this.answer;
@@ -12,8 +12,12 @@ public class Computer {
     public void generateAnserNumbers() {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-        while (answer.size() < GameRule.NUMBERS_LENGTH.getValue()) {
+        while (answer.getNumbers().length() < GameRule.NUMBERS_LENGTH.getValue()) {
             answer.addAnswerNumber(randomNumberGenerator.generate());
         }
+    }
+
+    public void giveHint(Guess guess) {
+
     }
 }

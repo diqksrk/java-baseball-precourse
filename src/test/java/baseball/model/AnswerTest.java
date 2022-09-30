@@ -21,7 +21,7 @@ class AnswerTest {
         answer.addAnswerNumber(3);
 
         // Then
-        assertThat(answer.size()).isEqualTo(1);
+        assertThat(answer.length()).isEqualTo(1);
     }
 
     @Test
@@ -31,8 +31,11 @@ class AnswerTest {
         answer.addAnswerNumber(3);
 
         // Then
-        for (int i = 0; i < answer.size(); i++) {
-            assertThat((int) answer.getNumbers().get(i)).isBetween(0, 9);
+        for (int i = 0; i < answer.length(); i++) {
+            assertThat(Character.getNumericValue(
+                                            answer.getNumbers()
+                                                    .charAt(i)
+                                                )).isBetween(0, 9);
         }
     }
 }

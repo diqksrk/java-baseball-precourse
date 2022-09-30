@@ -1,27 +1,24 @@
 package baseball.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Answer {
-    private List<Integer> numbers = new ArrayList<>();
+    private StringBuilder numbers = new StringBuilder();
 
     public void addAnswerNumber(int number) {
         if (isAnswerNumber(number)) {
-            this.numbers.add(number);
+            this.numbers.append(String.valueOf(number));
         }
     }
 
-    public List getNumbers() {
-        return this.numbers;
+    public String getNumbers() {
+        return this.numbers.toString();
     }
 
-    public int size() {
-        return this.numbers.size();
+    public int length() {
+        return this.numbers.toString().length();
     }
 
     private boolean isAnswerNumber(int number) {
-        if (numbers.contains(number)) {
+        if (numbers.toString().contains(String.valueOf(number))) {
             return false;
         }
 
