@@ -1,5 +1,7 @@
 package baseball.model;
 
+import baseball.common.GameRule;
+
 public class Computer {
     Answer answer = new Answer();
 
@@ -10,7 +12,7 @@ public class Computer {
     public void generateAnserNumbers() {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-        while (answer.size() < 3) {
+        while (answer.size() < GameRule.NUMBERS_LENGTH.getValue()) {
             answer.addAnswerNumber(randomNumberGenerator.generate());
         }
     }

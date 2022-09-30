@@ -1,6 +1,6 @@
 package baseball.view;
 
-import baseball.common.message.GameMessage;
+import baseball.common.GameMessage;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;

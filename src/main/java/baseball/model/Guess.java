@@ -1,5 +1,7 @@
 package baseball.model;
 
+import baseball.common.GameRule;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,7 +51,7 @@ public class Guess {
     }
 
     private boolean isValidNumbersLength(String numbers) {
-        if (numbers.length() != 3) {
+        if (numbers.length() != GameRule.NUMBERS_LENGTH.getValue()) {
             throw new IllegalArgumentException();
         }
         return true;

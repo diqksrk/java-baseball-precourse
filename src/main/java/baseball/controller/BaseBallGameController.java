@@ -1,6 +1,6 @@
 package baseball.controller;
 
-import baseball.common.message.GameMessage;
+import baseball.common.GameMessage;
 import baseball.model.Guess;
 import baseball.view.GameReader;
 import baseball.view.GameWriter;
