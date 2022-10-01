@@ -44,10 +44,59 @@ class GameWriterTest {
         String result;
 
         // When
-        result = "1볼 1스트라이크" + "\r\n";
+        // window일 경우
+        result = "1볼 1스트라이크\r\n";
+
+        // mac일 경우
+//        result = "1볼 1스트라이크\n";
+
         hint.addStrike();
         hint.addBall();
         GameWriter.write(MessageUtils.makeOutputHintMessage(hint), true);
+
+        // Then
+        assertThat(result).isEqualTo(outputStream.toString());
+    }
+
+    @Test
+    @DisplayName("정답문구 출력 테스트 - 정답일경우")
+    void answer_write_test() {
+        // Given
+        Hint hint = new Hint();
+        String result;
+
+        // When
+        // window일 경우
+        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\r\n";
+
+        // mac일 경우
+//        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
+
+        hint.addStrike();
+        hint.addStrike();
+        hint.addStrike();
+        GameWriter.write(MessageUtils.makeResultMessage(hint), true);
+
+        // Then
+        assertThat(result).isEqualTo(outputStream.toString());
+    }
+
+    @Test
+    @DisplayName("정답문구 출력 테스트 - 정답이 아닐 경우")
+    void no_answer_write_test() {
+        // Given
+        Hint hint = new Hint();
+        String result;
+
+        // When
+        // window일 경우
+        result = "";
+
+        // mac일 경우
+//        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
+
+        hint.addStrike();
+        GameWriter.write(MessageUtils.makeResultMessage(hint), true);
 
         // Then
         assertThat(result).isEqualTo(outputStream.toString());

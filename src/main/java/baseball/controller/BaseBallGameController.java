@@ -27,6 +27,7 @@ public class BaseBallGameController {
             guess.setNumbers(GameReader.read());
             hint = computer.giveHint(guess);
             GameWriter.write(MessageUtils.makeOutputHintMessage(hint), true);
+            GameWriter.write(MessageUtils.makeResultMessage(hint), true);
         }
     }
 }
