@@ -19,4 +19,12 @@ public class Hint {
     public void addBall() {
         this.ball += 1;
     }
+
+    public boolean hasBall() {
+        return this.ball > 0 ?  true : false;
+    }
+
+    public boolean hasStrike() {
+        return this.strike > 0 ? true : false;
+    }
 }

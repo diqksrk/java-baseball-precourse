@@ -1,6 +1,8 @@
 package baseball.view;
 
 import baseball.common.GameMessage;
+import baseball.common.MessageUtils;
+import baseball.model.Hint;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
@@ -25,8 +27,8 @@ class GameWriterTest {
     }
 
     @Test
-    @DisplayName("출력 테스트")
-    void write_test() {
+    @DisplayName("숫자 질의문 출력 테스트")
+    void number_inquire_write_test() {
         // When
         gameWriter.write(GameMessage.NUMBER_INQUIRE_MESSAGE.getMessage());
 
@@ -34,4 +36,20 @@ class GameWriterTest {
         assertThat(GameMessage.NUMBER_INQUIRE_MESSAGE.getMessage()).isEqualTo(outputStream.toString());
     }
 
+    @Test
+    @DisplayName("힌트 출력 테스트")
+    void hint_write_test() {
+        // Given
+        Hint hint = new Hint();
+        String result;
+
+        // When
+        result = "1볼 1스트라이크";
+        hint.addStrike();
+        hint.addBall();
+        GameWriter.write(MessageUtils.makeOutputHintMessage(hint));
+
+        // Then
+        assertThat(result).isEqualTo(outputStream.toString());
+    }
 }

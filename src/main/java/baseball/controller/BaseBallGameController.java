@@ -1,24 +1,29 @@
 package baseball.controller;
 
 import baseball.common.GameMessage;
+import baseball.common.MessageUtils;
 import baseball.model.Computer;
 import baseball.model.Guess;
+import baseball.model.Hint;
 import baseball.view.GameReader;
 import baseball.view.GameWriter;
 
 public class BaseBallGameController {
     Guess guess;
     Computer computer;
+    Hint hint;
 
     public BaseBallGameController() {
         guess = new Guess();
         computer = new Computer();
+        Hint hint = new Hint();
     }
 
     public void start() {
         GameWriter.write(GameMessage.NUMBER_INQUIRE_MESSAGE.getMessage());
         guess.setNumbers(GameReader.read());
 
-        computer.giveHint(guess);
+        hint = computer.giveHint(guess);
+        GameWriter.write(MessageUtils.makeOutputHintMessage(hint));
     }
 }
