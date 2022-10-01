@@ -21,19 +21,49 @@ class GameRuleTest {
     @DisplayName("GameRule - Min Number 테스트")
     void min_number_test() {
         // Given
-        int testingLength = 0;
+        int testingNumber = 0;
 
         // When && Then
-        assertThat(testingLength).isEqualTo(GameRule.MIN_NUMBER.getValue());
+        assertThat(testingNumber).isEqualTo(GameRule.MIN_NUMBER.getValue());
     }
 
     @Test
-    @DisplayName("GameRule - Ma Number 테스트")
+    @DisplayName("GameRule - Max Number 테스트")
     void max_number_test() {
         // Given
-        int testingLength = 9;
+        int testingNumber = 9;
 
         // When && Then
-        assertThat(testingLength).isEqualTo(GameRule.MAX_NUMBER.getValue());
+        assertThat(testingNumber).isEqualTo(GameRule.MAX_NUMBER.getValue());
+    }
+
+    @Test
+    @DisplayName("GameRule - Game Restart 테스트")
+    void game_restart_test() {
+        // Given
+        int testingResult = 1;
+
+        // When && Then
+        assertThat(testingResult).isEqualTo(GameRule.GAME_RESTART.getValue());
+    }
+
+    @Test
+    @DisplayName("GameRule - Game End 테스트")
+    void game_end_test() {
+        // Given
+        int testingResult = 2;
+
+        // When && Then
+        assertThat(testingResult).isEqualTo(GameRule.GAME_END.getValue());
+    }
+
+    @Test
+    @DisplayName("스트링값으로 변환 테스트")
+    void get_string_value_test() {
+        // Given
+        String testingResult = "2";
+
+        // When && Then
+        assertThat(testingResult).isEqualTo(GameRule.GAME_END.getStringValue());
     }
 }

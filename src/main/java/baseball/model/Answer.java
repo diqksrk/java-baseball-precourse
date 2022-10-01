@@ -5,7 +5,7 @@ public class Answer {
 
     public void addAnswerNumber(int number) {
         if (isAnswerNumber(number)) {
-            this.numbers.append(String.valueOf(number));
+            this.numbers.append(number);
         }
     }
 
