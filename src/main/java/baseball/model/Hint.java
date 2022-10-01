@@ -1,5 +1,7 @@
 package baseball.model;
 
+import baseball.common.GameRule;
+
 public class Hint {
     private int ball;
     private int strike;
@@ -26,5 +28,9 @@ public class Hint {
 
     public boolean hasStrike() {
         return this.strike > 0 ? true : false;
+    }
+
+    public boolean isAnswer() {
+        return this.strike == GameRule.ANSWER_NUMBER_LENGTH.getValue() ? true : false;
     }
 }

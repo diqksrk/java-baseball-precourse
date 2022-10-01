@@ -16,14 +16,17 @@ public class BaseBallGameController {
     public BaseBallGameController() {
         guess = new Guess();
         computer = new Computer();
-        Hint hint = new Hint();
+        hint = new Hint();
     }
 
     public void start() {
-        GameWriter.write(GameMessage.NUMBER_INQUIRE_MESSAGE.getMessage());
-        guess.setNumbers(GameReader.read());
+        computer.generateAnserNumbers();
 
-        hint = computer.giveHint(guess);
-        GameWriter.write(MessageUtils.makeOutputHintMessage(hint));
+        while (!hint.isAnswer()) {
+            GameWriter.write(GameMessage.NUMBER_INQUIRE_MESSAGE.getMessage(), false);
+            guess.setNumbers(GameReader.read());
+            hint = computer.giveHint(guess);
+            GameWriter.write(MessageUtils.makeOutputHintMessage(hint), true);
+        }
     }
 }
