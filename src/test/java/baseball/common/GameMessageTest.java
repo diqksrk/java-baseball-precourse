@@ -56,4 +56,14 @@ class GameMessageTest {
         // When && Then
         assertThat(testingString).isEqualTo(GameMessage.NUMBER_IS_ANSWER_MESSAGE.getMessage());
     }
+
+    @Test
+    @DisplayName("게임 종료 후 커멘드 메시지 테스트")
+    void game_command_message_test() {
+        // Given
+        String testingString = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+
+        // When && Then
+        assertThat(testingString).isEqualTo(GameMessage.GAME_COMMAND_MESSAGE.getMessage());
+    }
 }

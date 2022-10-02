@@ -22,6 +22,12 @@ public class BaseBallGameController {
     public void start() {
         computer.generateAnserNumbers();
 
+        roundStart();
+
+        GameWriter.write(GameMessage.GAME_COMMAND_MESSAGE.getMessage(), true);
+    }
+
+    private void roundStart() {
         while (!hint.isAnswer()) {
             GameWriter.write(GameMessage.NUMBER_INQUIRE_MESSAGE.getMessage(), false);
             guess.setNumbers(GameReader.read());
