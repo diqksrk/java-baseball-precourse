@@ -46,7 +46,7 @@ public class Computer {
 
     private void addIfBall(Guess guess, char number, Hint hint) {
         if (answer.getNumbers().contains(Character.toString(number)) &&
-            guess.getNumbers().indexOf(number) != answer.getNumbers().indexOf(number)) {
+                guess.getNumbers().indexOf(number) != answer.getNumbers().indexOf(number)) {
             hint.addBall();
         }
     }

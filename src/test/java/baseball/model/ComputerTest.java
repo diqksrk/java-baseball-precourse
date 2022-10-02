@@ -37,10 +37,10 @@ class ComputerTest {
         // Then
         for (int i = 0; i < computer.getAnswer().length(); i++) {
             assertThat(Character.getNumericValue(
-                                                computer.getAnswer()
-                                                        .getNumbers()
-                                                        .charAt(i))
-                                                ).isBetween(0, 9);
+                    computer.getAnswer()
+                            .getNumbers()
+                            .charAt(i))
+            ).isBetween(0, 9);
         }
     }
 
@@ -57,15 +57,15 @@ class ComputerTest {
         // Then
         for (int i = 0; i < computer.getAnswer().length() - 1; i++) {
             standardNumber = Character.getNumericValue(
-                                                    computer.getAnswer()
-                                                            .getNumbers()
-                                                            .charAt(i)
-                                                        );
+                    computer.getAnswer()
+                            .getNumbers()
+                            .charAt(i)
+            );
             compareNumber = Character.getNumericValue(
-                                                    computer.getAnswer()
-                                                            .getNumbers()
-                                                            .charAt(i + 1)
-                                                    );
+                    computer.getAnswer()
+                            .getNumbers()
+                            .charAt(i + 1)
+            );
 
             assertThat(standardNumber).isNotEqualTo(compareNumber);
         }

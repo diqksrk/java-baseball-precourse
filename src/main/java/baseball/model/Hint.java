@@ -23,7 +23,7 @@ public class Hint {
     }
 
     public boolean hasBall() {
-        return this.ball > 0 ?  true : false;
+        return this.ball > 0 ? true : false;
     }
 
     public boolean hasStrike() {

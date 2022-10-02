@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class AnswerTest {
     Answer answer;
@@ -33,9 +33,9 @@ class AnswerTest {
         // Then
         for (int i = 0; i < answer.length(); i++) {
             assertThat(Character.getNumericValue(
-                                            answer.getNumbers()
-                                                    .charAt(i)
-                                                )).isBetween(0, 9);
+                    answer.getNumbers()
+                            .charAt(i)
+            )).isBetween(0, 9);
         }
     }
 }

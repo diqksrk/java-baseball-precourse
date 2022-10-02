@@ -17,7 +17,7 @@ public class GameManager {
     }
 
     private boolean isValid(String command) {
-        if (!command.equals( GameRule.GAME_RESTART.getStringValue() ) && !command.equals( GameRule.GAME_END.getStringValue() )
+        if (!command.equals(GameRule.GAME_RESTART.getStringValue()) && !command.equals(GameRule.GAME_END.getStringValue())
         ) {
             return false;
         }
@@ -26,7 +26,7 @@ public class GameManager {
     }
 
     private boolean isRestart(String command) {
-        if (command.equals( GameRule.GAME_RESTART.getStringValue() )
+        if (command.equals(GameRule.GAME_RESTART.getStringValue())
         ) {
             return true;
         }

@@ -3,12 +3,15 @@ package baseball.view;
 import baseball.common.GameMessage;
 import baseball.common.MessageUtils;
 import baseball.model.Hint;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GameWriterTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -89,11 +92,7 @@ class GameWriterTest {
         String result;
 
         // When
-        // window일 경우
         result = "";
-
-        // mac일 경우
-//        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
 
         hint.addStrike();
         GameWriter.write(MessageUtils.makeResultMessage(hint), true);
