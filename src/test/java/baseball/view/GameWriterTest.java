@@ -47,18 +47,14 @@ class GameWriterTest {
         String result;
 
         // When
-        // window일 경우
-        result = "1볼 1스트라이크\r\n";
-
-        // mac일 경우
-//        result = "1볼 1스트라이크\n";
+        result = "1볼 1스트라이크";
 
         hint.addStrike();
         hint.addBall();
         GameWriter.write(MessageUtils.makeOutputHintMessage(hint), true);
 
         // Then
-        assertThat(result).isEqualTo(outputStream.toString());
+        assertThat(result).isEqualTo(outputStream.toString().trim());
     }
 
     @Test
@@ -69,11 +65,7 @@ class GameWriterTest {
         String result;
 
         // When
-        // window일 경우
-        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\r\n";
-
-        // mac일 경우
-//        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
+        result = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
 
         hint.addStrike();
         hint.addStrike();
@@ -81,7 +73,7 @@ class GameWriterTest {
         GameWriter.write(MessageUtils.makeResultMessage(hint), true);
 
         // Then
-        assertThat(result).isEqualTo(outputStream.toString());
+        assertThat(result).isEqualTo(outputStream.toString().trim());
     }
 
     @Test
@@ -98,6 +90,19 @@ class GameWriterTest {
         GameWriter.write(MessageUtils.makeResultMessage(hint), true);
 
         // Then
-        assertThat(result).isEqualTo(outputStream.toString());
+        assertThat(result).isEqualTo(outputStream.toString().trim());
+    }
+
+    @Test
+    @DisplayName("게임 재시작 안내 문구 출력 테스트")
+    void game_command_message_write_test() {
+        // Given
+        String result = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+
+        // When
+        GameWriter.write(GameMessage.GAME_COMMAND_MESSAGE.getMessage(), true);
+
+        // Then
+        assertThat(result).isEqualTo(outputStream.toString().trim());
     }
 }
