@@ -9,7 +9,7 @@ public class Computer {
         return this.answer;
     }
 
-    public void generateAnserNumbers() {
+    public void generateAnswerNumbers() {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         while (answer.getNumbers().length() < GameRule.NUMBERS_LENGTH.getValue()) {

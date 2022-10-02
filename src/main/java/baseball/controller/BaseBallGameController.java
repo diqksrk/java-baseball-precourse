@@ -20,7 +20,7 @@ public class BaseBallGameController {
     }
 
     public void start() {
-        computer.generateAnserNumbers();
+        computer.generateAnswerNumbers();
 
         roundStart();
 

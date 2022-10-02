@@ -22,7 +22,7 @@ class ComputerTest {
     @DisplayName("정답 숫자들 사이즈 테스트")
     void answer_numbers_size_test() {
         // When
-        computer.generateAnserNumbers();
+        computer.generateAnswerNumbers();
 
         // Then
         assertThat(computer.getAnswer().length()).isEqualTo(3);
@@ -32,7 +32,7 @@ class ComputerTest {
     @DisplayName("정답 숫자들이 각각 1부터 9까지의 숫자인지 확인 테스트")
     void is_answer_numbers_test() {
         // When
-        computer.generateAnserNumbers();
+        computer.generateAnswerNumbers();
 
         // Then
         for (int i = 0; i < computer.getAnswer().length(); i++) {
@@ -52,7 +52,7 @@ class ComputerTest {
         int compareNumber = 0;
 
         // When
-        computer.generateAnserNumbers();
+        computer.generateAnswerNumbers();
 
         // Then
         for (int i = 0; i < computer.getAnswer().length() - 1; i++) {
