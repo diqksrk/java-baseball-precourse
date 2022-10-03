@@ -16,8 +16,24 @@ public class GameManager {
         return true;
     }
 
+    private boolean isBlankCommand(String numbers) {
+        if (numbers == null || numbers.trim().isEmpty()) {
+            return true;
+        }
+
+        return false;
+    }
+
     private boolean isValid(String command) {
-        if (!command.equals(GameRule.GAME_RESTART.getStringValue()) && !command.equals(GameRule.GAME_END.getStringValue())
+        if (isBlankCommand(command) || !isCommandNumber(command)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean isCommandNumber(String command) {
+        if ( !command.equals(GameRule.GAME_RESTART.getStringValue()) && !command.equals(GameRule.GAME_END.getStringValue() )
         ) {
             return false;
         }
@@ -26,7 +42,7 @@ public class GameManager {
     }
 
     private boolean isRestart(String command) {
-        if (command.equals(GameRule.GAME_RESTART.getStringValue())
+        if ( command.equals(GameRule.GAME_RESTART.getStringValue() )
         ) {
             return true;
         }

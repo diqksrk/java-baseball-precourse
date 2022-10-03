@@ -22,11 +22,19 @@ public class Guess {
     }
 
     private boolean isValidNumbers(String numbers) {
-        if (!isDigitNumbers(numbers) || isSameNumbers(numbers) || !isValidNumbersLength(numbers)) {
+        if (isBlankNumber(numbers) || !isDigitNumbers(numbers) || isSameNumbers(numbers) || !isValidNumbersLength(numbers)) {
             return false;
         }
 
         return true;
+    }
+
+    private boolean isBlankNumber(String numbers) {
+        if (numbers == null || numbers.trim().isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
+        return false;
     }
 
     private boolean isDigitNumbers(String numbers) {
