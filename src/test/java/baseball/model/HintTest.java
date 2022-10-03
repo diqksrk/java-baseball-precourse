@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -91,8 +93,8 @@ class HintTest {
         assertThat(hint.isAnswer()).isTrue();
     }
 
-    @ParameterizedTest
     @DisplayName("정답이 아닐경우, 정답을 확인하는 테스트")
+    @ParameterizedTest(name = "{index} {displayName} message={0}")
     @ValueSource(ints = {1, 2})
     void is_answer_false_test(int count) {
         Hint hint2 = new Hint();
