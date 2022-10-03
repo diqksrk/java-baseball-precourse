@@ -1,5 +1,6 @@
 package baseball.common;
 
+import baseball.common.message.GameMessage;
 import baseball.model.Hint;
 
 public final class MessageUtils {

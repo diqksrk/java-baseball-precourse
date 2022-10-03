@@ -1,12 +1,13 @@
 package baseball.model;
 
+import baseball.common.message.ErrorMessage;
 import baseball.common.GameRule;
 
 public class GameManager {
 
     public boolean isGameEnd(String command) {
         if (!isValid(command)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.COMMAND_INPUT_ERROR_MESSAGE.getMessage());
         }
 
         if (isRestart(command)) {

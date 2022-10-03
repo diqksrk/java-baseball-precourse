@@ -1,5 +1,6 @@
 package baseball.model;
 
+import baseball.common.message.ErrorMessage;
 import baseball.common.GameRule;
 
 import java.util.HashSet;
@@ -31,7 +32,7 @@ public class Guess {
 
     private boolean isBlankNumber(String numbers) {
         if (numbers == null || numbers.trim().isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.BLANK_NUMBER_ERROR_MESSAGE.getMessage());
         }
 
         return false;
@@ -46,7 +47,7 @@ public class Guess {
 
     private boolean isDigit(String numbers, int index) {
         if (!Character.isDigit(numbers.charAt(index))) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.DIGIT_NUMBER_ERROR_MESSAGE.getMessage());
         }
         return true;
     }
@@ -64,7 +65,7 @@ public class Guess {
 
     private boolean isValidNumbersLength(String numbers) {
         if (numbers.length() != GameRule.NUMBERS_LENGTH.getValue()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.NUMBER_LENGTH_ERROR_MESSAGE.getMessage());
         }
         return true;
     }

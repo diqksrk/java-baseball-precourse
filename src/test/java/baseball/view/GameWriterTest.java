@@ -1,6 +1,6 @@
 package baseball.view;
 
-import baseball.common.GameMessage;
+import baseball.common.message.GameMessage;
 import baseball.common.MessageUtils;
 import baseball.model.Hint;
 import org.junit.jupiter.api.AfterEach;

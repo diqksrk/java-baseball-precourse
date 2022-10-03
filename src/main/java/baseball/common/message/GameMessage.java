@@ -1,4 +1,4 @@
-package baseball.common;
+package baseball.common.message;
 
 public enum GameMessage {
     NUMBER_INQUIRE_MESSAGE("숫자를 입력해주세요 : "),

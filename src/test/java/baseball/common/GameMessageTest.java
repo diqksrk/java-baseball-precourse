@@ -1,5 +1,6 @@
 package baseball.common;
 
+import baseball.common.message.GameMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
